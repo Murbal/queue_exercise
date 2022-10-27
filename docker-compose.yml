@@ -12,6 +12,11 @@ services:
   processor:
     build:
       context: processor
+    environment:
+      - RABBIT_USER
+      - RABBIT_PASSWORD
+      - RABBIT_HOST
+      - RABBIT_PORT
     volumes:
       - ./processor:/root/code:rw
       - processor_m2:/root/.m2:rw
