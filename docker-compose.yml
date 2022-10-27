@@ -1,6 +1,21 @@
 version: '3'
 
 services:
-  rabbitmq:
+  queue:
     build:
       context: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq:rw
+  processor:
+    build:
+      context: processor
+    volumes:
+      - ./processor:/root/code:rw
+      - processor_m2:/root/.m2:rw
+
+volumes:
+  rabbitmq_data: null
+  processor_m2: null
