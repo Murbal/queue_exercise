@@ -20,7 +20,21 @@ services:
     volumes:
       - ./processor:/root/code:rw
       - processor_m2:/root/.m2:rw
+  api:
+    build:
+      context: api
+    environment:
+      - RABBIT_USER
+      - RABBIT_PASSWORD
+      - RABBIT_HOST
+      - RABBIT_PORT
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api:/root/code:rw
+      - api_m2:/root/.m2:rw
 
 volumes:
   rabbitmq_data: null
   processor_m2: null
+  api_m2: null
