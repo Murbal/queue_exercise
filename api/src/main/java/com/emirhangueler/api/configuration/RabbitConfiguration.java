@@ -1,4 +1,4 @@
-package com.emirhangueler.api;
+package com.emirhangueler.api.configuration;
 
 import java.net.URI;
 
