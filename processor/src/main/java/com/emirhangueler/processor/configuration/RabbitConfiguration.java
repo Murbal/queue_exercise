@@ -1,4 +1,4 @@
-package com.emirhangueler.processor;
+package com.emirhangueler.processor.configuration;
 
 import java.net.URI;
 
