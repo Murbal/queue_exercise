@@ -1,5 +1,6 @@
 package com.emirhangueler.processor;
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ public class Receiver {
     @Autowired
     private LogProcessor logProcessor;
 
+    @RabbitListener(queues = QueueConfiguration.queueName)
     public void receiveMessage(String message) {
         this.logProcessor.process(message);
     }
