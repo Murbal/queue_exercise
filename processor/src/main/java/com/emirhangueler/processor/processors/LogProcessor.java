@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogProcessor {
     public void process(String message) {
-        System.out.println(message);
+        System.out.println("Received <%s>".formatted(message));
     }
 }
