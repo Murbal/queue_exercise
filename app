@@ -18,7 +18,7 @@ fi
 command=$1
 if [ "$command" = "start" ]
 then
-    $composeCommand up -d --build
+    $composeCommand up -d
 elif [ "$command" = "stop" ]
 then
     $composeCommand down
