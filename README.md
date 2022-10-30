@@ -36,7 +36,7 @@ The processing of the message is done by the [LogProcessor](./processor/src/main
 The service as of now, is not scalable at all, because there has to be 1 and only 1 processor service. So if a task in the queue, takes up **x** amount of time, the processing of other tasks will be delayed by **x** amount.
 
 ### Maintainability
-If a new processor is needed, you will have to map a message, depending on it's content, to the appropriate processor.
+If a new processor is needed, you will have to map a message, depending on it's content, to the appropriate processor (in the Receiver).
 
 ## API
 ### General
@@ -58,7 +58,9 @@ The main bottleneck in the future will be the processor. Right now we could scal
 - Processor 2 takes Task 2
 - Processor 2 finishes before Processor 1 and already takes Task 3, even though Task 1 is not finished.
 
-In some cases this would not cause any issues, because task 1 would still get completed. But it *can* cause issues, if Task 3 is expected to only be run, after Task 1 is finished
+In some cases this would not cause any issues, because task 1 would still get completed. But it *can* cause issues, if Task 3 is expected to only be run, after Task 1 is finished. In a real life scenario, this would require much more testing and planning, in order to not run in **any** troubles.
 
 # Question 4
+> What kind of data does the sender’s message HAVE TO contain to ensure they are imported in the correct order?
+
 I'm confused when it comes, to this question. We are using a queue, so we cannot change the execution order, as a queue is FIFO (first in, first out), and we are adding an item to the queue, the moment the REST endpoint gets called. I think answering this question requires some knowledge of the data and of what the processor does. Would gladly discuss this in a call.
