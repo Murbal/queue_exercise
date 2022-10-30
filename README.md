@@ -5,6 +5,8 @@ cp .env.dist .env # set COMPOSE_VERSION=1 if you use docker-compose (v1) and not
 cp rabbitmq/rabbitmq.conf.dist rabbitmq/rabbitmq.conf
 
 ./app start
+# ./app stop for stopping
+# ./app logs for logs
 ```
 
 ## [Assignment](docs/Assignment.pdf)
