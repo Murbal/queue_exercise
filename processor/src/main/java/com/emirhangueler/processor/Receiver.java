@@ -11,7 +11,7 @@ import com.emirhangueler.processor.processors.LogProcessor;
  * receives messages and distributes (in the future), depending on content, to processors
  */
 @Component
-public class Receiver {
+public final class Receiver {
     @Autowired
     private LogProcessor logProcessor;
 

@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service;
 import com.emirhangueler.api.Sender;
 
 @Service
-public class ReservationService {
+public final class ReservationService {
     @Autowired
     private Sender sender;
 
-    public void makeReservation(String message) {
+    public void makeReservation(final String message) {
         this.sender.send(message);
     }
 }

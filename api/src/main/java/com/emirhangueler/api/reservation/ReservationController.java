@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/reservations")
-public class ReservationController {
+public final class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
     @PostMapping
-    public void makeReservation(@RequestBody String message) {
+    public void makeReservation(@RequestBody final String message) {
         this.reservationService.makeReservation(message);
     }
 
